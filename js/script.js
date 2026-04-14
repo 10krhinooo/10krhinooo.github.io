@@ -54,7 +54,7 @@
   btn.textContent = 'Sending…';
 
   try {
-    const res = await fetch('http://localhost:8083/api/contact', {
+    const res = await fetch('https://portfolio-be-production-dd7f.up.railway.app/api/contact', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ name, email, message })
