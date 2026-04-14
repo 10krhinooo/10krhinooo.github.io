@@ -31,6 +31,14 @@
   }
 
   // Smooth form feedback
+  function handleFormSubmit(btn) {
+    btn.textContent = 'Message Sent ✓';
+    btn.style.background = '#00c080';
+    setTimeout(() => {
+      btn.textContent = 'Send Message →';
+      btn.style.background = '';
+    }, 3000);
+  }
   async function handleFormSubmit(btn) {
   const wrapper = btn.closest('.contact-form-side');
   const name    = wrapper.querySelector('input[type="text"]').value.trim();
@@ -53,14 +61,8 @@
     });
 
     if (res.ok) {
-      btn.textContent = 'Message Sent ✓';
-      btn.style.background = '#00c080';
+      btn.textContent = 'Sent ✓';
       wrapper.querySelectorAll('input, textarea').forEach(el => el.value = '');
-      setTimeout(() => {
-        btn.textContent = 'Send Message →';
-        btn.style.background = '';
-        btn.disabled = false;
-      }, 3000);
     } else {
       btn.textContent = 'Failed. Try again.';
       btn.disabled = false;
