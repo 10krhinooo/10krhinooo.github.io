@@ -4,13 +4,24 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Victor Kimanga — Backend Developer</title>
+<meta name="description" content="Victor Kimanga — Backend Software Developer specializing in Java, Spring Boot &amp; Quarkus. Portfolio of projects, experience, and skills." />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Victor Kimanga — Backend Developer" />
+<meta property="og:description" content="Backend Software Developer specializing in Java, Spring Boot &amp; Quarkus. Building scalable microservices, REST APIs, and event-driven systems." />
+<meta property="og:url" content="https://10krhinooo.github.io/" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Victor Kimanga — Backend Developer" />
+<meta name="twitter:description" content="Backend Software Developer specializing in Java, Spring Boot &amp; Quarkus." />
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9JzAgMCAxMDAgMTAwJz48cmVjdCB3aWR0aD0nMTAwJyBoZWlnaHQ9JzEwMCcgcng9JzIwJyBmaWxsPScjMDgwYjEwJy8+PHRleHQgeD0nNTAnIHk9JzY3JyBmb250LWZhbWlseT0nQXJpYWwsIEhlbHZldGljYSwgc2Fucy1zZXJpZicgZm9udC1zaXplPSc0MicgZm9udC13ZWlnaHQ9JzgwMCcgZmlsbD0nIzAwZTVhMCcgdGV4dC1hbmNob3I9J21pZGRsZSc+Vks8L3RleHQ+PC9zdmc+" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;1,300&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Mono:wght@400&family=Instrument+Serif&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/stylesheet.css" />
 </head>
 <body>
 
 <div class="grid-bg"></div>
+<div class="scroll-progress" id="scrollProgress"></div>
 
 <!-- NAV -->
 <nav>
@@ -43,12 +54,12 @@
     <div class="hero-badge">Available for opportunities</div>
     <h1>
       <span class="name-line">Victor</span>
-      <span class="name-line accent-word">Kimanga</span>
+      <span class="name-line accent-word">Kimanga<span class="cursor-blink" aria-hidden="true">_</span></span>
     </h1>
     <p class="hero-desc">
-      Backend Software Developer specializing in Java &amp; Spring Boot.<br>
+      Backend Software Developer specializing in Java, Spring Boot &amp; Quarkus.<br>
       Building scalable microservices, REST APIs, and event-driven systems
-      that power real-world applications.
+      with strong observability practices using Grafana.
     </p>
     <div class="hero-actions">
       <a href="#projects" class="btn btn-primary">View My Work →</a>
@@ -56,11 +67,11 @@
     </div>
     <div class="hero-stats">
       <div class="stat-item">
-        <div class="stat-num">3+</div>
+        <div class="stat-num">8+</div>
         <div class="stat-label">Projects Shipped</div>
       </div>
       <div class="stat-item">
-        <div class="stat-num">8+</div>
+        <div class="stat-num">9+</div>
         <div class="stat-label">Languages</div>
       </div>
       <div class="stat-item">
@@ -96,17 +107,20 @@
         <span class="tag">PHP</span>
         <span class="tag">SQL</span>
         <span class="tag">Swift</span>
+        <span class="tag">HTML</span>
       </div>
     </div>
     <div class="skill-card">
       <div class="skill-cat">Frameworks &amp; APIs</div>
       <div class="skill-tags">
         <span class="tag">Spring Boot</span>
+        <span class="tag">Quarkus</span>
         <span class="tag">Hibernate / JPA</span>
         <span class="tag">Laravel</span>
         <span class="tag">REST APIs</span>
         <span class="tag">Microservices</span>
         <span class="tag">FastAPI</span>
+        <span class="tag">FHIR R4</span>
       </div>
     </div>
     <div class="skill-card">
@@ -127,6 +141,8 @@
         <span class="tag">Grafana</span>
         <span class="tag">CI/CD</span>
         <span class="tag">AWS</span>
+        <span class="tag">Keycloak</span>
+        <span class="tag">Jira</span>
       </div>
     </div>
     <div class="skill-card">
@@ -137,6 +153,9 @@
         <span class="tag">API Design</span>
         <span class="tag">System Monitoring</span>
         <span class="tag">RAG Pipelines</span>
+        <span class="tag">Backend Development</span>
+        <span class="tag">System Optimization</span>
+        <span class="tag">QA &amp; Testing</span>
       </div>
     </div>
     <div class="skill-card">
@@ -163,6 +182,85 @@
 
     <div class="project-card" onmousemove="handleMouseMove(event, this)" onmouseleave="handleMouseLeave(this)">
       <div class="proj-num">01</div>
+      <div class="proj-title">Tahadhari</div>
+      <p class="proj-desc">A WhatsApp-based early warning alert system for East Africa, built with a three-person hackathon team. Owns the AI and language layer using FastAPI, the Claude API, and Twilio for message delivery.</p>
+      <div class="proj-tags">
+        <span class="proj-tag">FastAPI</span>
+        <span class="proj-tag">Claude API</span>
+        <span class="proj-tag">Twilio</span>
+        <span class="proj-tag">WhatsApp</span>
+      </div>
+      <div class="proj-footer">
+        <span>Jun 2026 – Present</span>
+        <span style="color: var(--accent);">Hackathon Project ✦</span>
+      </div>
+    </div>
+
+    <div class="project-card" onmousemove="handleMouseMove(event, this)" onmouseleave="handleMouseLeave(this)">
+      <div class="proj-num">02</div>
+      <div class="proj-title">Gatestack</div>
+      <p class="proj-desc">An event ticketing platform built with Quarkus 3 and a React 18/TypeScript frontend. Set up CI/CD pipelines with JaCoCo and Vitest, and implemented multi-currency exchange rate support.</p>
+      <div class="proj-tags">
+        <span class="proj-tag">Quarkus</span>
+        <span class="proj-tag">React</span>
+        <span class="proj-tag">TypeScript</span>
+        <span class="proj-tag">CI/CD</span>
+      </div>
+      <div class="proj-footer">
+        <span>May 2026 – Present</span>
+        <span style="color: var(--accent);">Personal Project ✦</span>
+      </div>
+    </div>
+
+    <div class="project-card" onmousemove="handleMouseMove(event, this)" onmouseleave="handleMouseLeave(this)">
+      <div class="proj-num">03</div>
+      <div class="proj-title">Dondoo Homes</div>
+      <p class="proj-desc">A full-stack property management platform using Quarkus 3, React 19, and PostgreSQL. Integrated Keycloak for identity and access management and M-Pesa for payment processing, with an admin UI featuring collapsible navigation and room classification.</p>
+      <div class="proj-tags">
+        <span class="proj-tag">Quarkus</span>
+        <span class="proj-tag">React</span>
+        <span class="proj-tag">PostgreSQL</span>
+        <span class="proj-tag">Keycloak</span>
+      </div>
+      <div class="proj-footer">
+        <span>Mar 2026 – Present</span>
+        <span style="color: var(--accent);">Contract Project ✦</span>
+      </div>
+    </div>
+
+    <div class="project-card" onmousemove="handleMouseMove(event, this)" onmouseleave="handleMouseLeave(this)">
+      <div class="proj-num">04</div>
+      <div class="proj-title">SignBridge</div>
+      <p class="proj-desc">A real-time sign language translation application bridging communication for the hearing impaired, with a backend API layer supporting sign recognition and translation workflows.</p>
+      <div class="proj-tags">
+        <span class="proj-tag">Quarkus</span>
+        <span class="proj-tag">Google Speech-to-Text</span>
+        <span class="proj-tag">React</span>
+      </div>
+      <div class="proj-footer">
+        <span>May 2026 – Present</span>
+        <span style="color: var(--accent);">Personal Project ✦</span>
+      </div>
+    </div>
+
+    <div class="project-card" onmousemove="handleMouseMove(event, this)" onmouseleave="handleMouseLeave(this)">
+      <div class="proj-num">05</div>
+      <div class="proj-title">Nyayo Sentinel</div>
+      <p class="proj-desc">A national early warning dashboard with real-time sentiment monitoring using a RoBERTa NLP pipeline. Backend built with Next.js and Express, integrating Socket.io for live updates, county heatmaps, MFA via email OTP, and Claude-powered AI summaries.</p>
+      <div class="proj-tags">
+        <span class="proj-tag">Next.js</span>
+        <span class="proj-tag">Express</span>
+        <span class="proj-tag">Socket.io</span>
+        <span class="proj-tag">RoBERTa NLP</span>
+      </div>
+      <div class="proj-footer">
+        <span>Jan – Mar 2026</span>
+        <span style="color: var(--accent);">Personal Project ✦</span>
+      </div>
+    </div>
+
+    <div class="project-card" onmousemove="handleMouseMove(event, this)" onmouseleave="handleMouseLeave(this)">
+      <div class="proj-num">06</div>
       <div class="proj-title">AI Climate Chatbot</div>
       <p class="proj-desc">An AI-powered Telegram chatbot delivering climate insights through LLMs and RAG pipelines. Built for real-time data processing with a scalable Spring Boot backend.</p>
       <div class="proj-tags">
@@ -178,7 +276,7 @@
     </div>
 
     <div class="project-card" onmousemove="handleMouseMove(event, this)" onmouseleave="handleMouseLeave(this)">
-      <div class="proj-num">02</div>
+      <div class="proj-num">07</div>
       <div class="proj-title">StoreSync</div>
       <p class="proj-desc">A full retail management platform covering inventory, sales tracking, and customer management. RESTful APIs and automated processes cut manual errors by 40%.</p>
       <div class="proj-tags">
@@ -194,17 +292,17 @@
     </div>
 
     <div class="project-card" onmousemove="handleMouseMove(event, this)" onmouseleave="handleMouseLeave(this)">
-      <div class="proj-num">03</div>
+      <div class="proj-num">08</div>
       <div class="proj-title">AfyaCheck</div>
-      <p class="proj-desc">A digital health platform for STI risk evaluation using dynamic questionnaires and ML-based risk scoring. Generates PDF reports and securely stores medical screening data.</p>
+      <p class="proj-desc">A digital health platform for STI risk evaluation using dynamic questionnaires and ML-based risk scoring. Generates PDF reports and securely stores medical screening data. Extended with a native iOS app built in Swift.</p>
       <div class="proj-tags">
         <span class="proj-tag">Spring Boot</span>
         <span class="proj-tag">ML Scoring</span>
         <span class="proj-tag">PDF Generation</span>
-        <span class="proj-tag">PostgreSQL</span>
+        <span class="proj-tag">Swift</span>
       </div>
       <div class="proj-footer">
-        <span>Apr 2025 – Present</span>
+        <span>Apr – Dec 2025</span>
         <span style="color: var(--accent);">Academic Project ✦</span>
       </div>
     </div>
@@ -228,6 +326,21 @@
       <div class="exp-dot"></div>
       <div class="exp-body">
         <div class="exp-meta">
+          <span class="exp-role">Backend Developer</span>
+          <span class="exp-period">Mar – May 2026</span>
+        </div>
+        <div class="exp-company">Savannah Informatics · Nairobi, Kenya (Internship)</div>
+        <ul class="exp-bullets">
+          <li>Improved CI/CD pipeline efficiency by 50%, reducing build and deployment times significantly.</li>
+          <li>Developed an authentication and authorization module using Go, enhancing system security and access control.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-dot"></div>
+      <div class="exp-body">
+        <div class="exp-meta">
           <span class="exp-role">Junior Backend Developer</span>
           <span class="exp-period">Jan – Mar 2025</span>
         </div>
@@ -245,12 +358,26 @@
       <div class="exp-body">
         <div class="exp-meta">
           <span class="exp-role">BSc. Informatics &amp; Computer Science</span>
-          <span class="exp-period">2022 – 2026</span>
+          <span class="exp-period">2022 – 2026 (Expected)</span>
         </div>
         <div class="exp-company">Strathmore University · Nairobi, Kenya</div>
         <ul class="exp-bullets">
           <li>Relevant coursework: Software Engineering, Database Systems, Algorithms, Data Structures.</li>
-          <li>Building LogiSight — a full-stack parcel tracking &amp; logistics platform as a capstone project.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-dot"></div>
+      <div class="exp-body">
+        <div class="exp-meta">
+          <span class="exp-role">Kenya Certificate of Secondary Education</span>
+          <span class="exp-period">2018 – 2022</span>
+        </div>
+        <div class="exp-company">Pioneer School · Maragua, Kenya</div>
+        <ul class="exp-bullets">
+          <li>Served as Class Prefect, demonstrating leadership and organization.</li>
+          <li>Excelled in Mathematics and Sciences.</li>
         </ul>
       </div>
     </div>
@@ -307,11 +434,11 @@
           <div class="contact-icon">☎</div>
           +254 717 999 529
         </a>
-        <a href="https://linkedin.com/in/victor-kimanga" target="_blank" class="contact-link">
+        <a href="https://linkedin.com/in/victor-kimanga" target="_blank" rel="noopener noreferrer" class="contact-link">
           <div class="contact-icon">in</div>
           linkedin.com/in/victor-kimanga
         </a>
-        <a href="https://github.com/10krhinooo" target="_blank" class="contact-link">
+        <a href="https://github.com/10krhinooo" target="_blank" rel="noopener noreferrer" class="contact-link">
           <div class="contact-icon">⌥</div>
           github.com/10krhinooo
         </a>
@@ -321,16 +448,16 @@
       <div class="contact-form-side">
         <div class="form-title">Send a Message</div>
         <div class="form-group">
-          <label>Your Name</label>
-          <input type="text" placeholder="Jane Doe" />
+          <label for="contact-name">Your Name</label>
+          <input type="text" id="contact-name" name="name" placeholder="Jane Doe" required />
         </div>
         <div class="form-group">
-          <label>Email Address</label>
-          <input type="email" placeholder="jane@company.com" />
+          <label for="contact-email">Email Address</label>
+          <input type="email" id="contact-email" name="email" placeholder="jane@company.com" required />
         </div>
         <div class="form-group">
-          <label>Message</label>
-          <textarea placeholder="Tell me about the opportunity..."></textarea>
+          <label for="contact-message">Message</label>
+          <textarea id="contact-message" name="message" placeholder="Tell me about the opportunity..." required></textarea>
         </div>
         <button class="form-submit" onclick="handleFormSubmit(this)">Send Message →</button>
       </div>
@@ -345,7 +472,9 @@
   <div class="footer-copy" style="color: var(--accent);">Backend Developer ✦</div>
 </footer>
 
+<button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
+
 <script src="js/script.js"></script>
- 
+
 </body>
 </html>
