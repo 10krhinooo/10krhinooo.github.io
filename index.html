@@ -1,6 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script>
+(function() {
+  try {
+    var stored = localStorage.getItem('theme');
+    var theme = stored === 'light' || stored === 'dark'
+      ? stored
+      : (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+    document.documentElement.setAttribute('data-theme', theme);
+  } catch (e) {
+    document.documentElement.setAttribute('data-theme', 'dark');
+  }
+})();
+</script>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Victor Kimanga — Backend Developer</title>
@@ -33,6 +46,10 @@
     <li><a href="#experience">Experience</a></li>
     <li><a href="#contact" class="nav-cta">Hire Me</a></li>
   </ul>
+  <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to light theme" aria-pressed="false">
+    <span class="theme-icon theme-icon-sun" aria-hidden="true">☀</span>
+    <span class="theme-icon theme-icon-moon" aria-hidden="true">☾</span>
+  </button>
   <button class="hamburger" id="hamburger" aria-label="Menu">
     <span></span><span></span><span></span>
   </button>
@@ -44,6 +61,11 @@
   <a href="#projects" onclick="closeMenu()">Projects</a>
   <a href="#experience" onclick="closeMenu()">Experience</a>
   <a href="#contact" onclick="closeMenu()">Hire Me</a>
+  <button class="theme-toggle theme-toggle-mobile" id="themeToggleMobile" type="button" aria-label="Switch to light theme" aria-pressed="false">
+    <span class="theme-icon theme-icon-sun" aria-hidden="true">☀</span>
+    <span class="theme-icon theme-icon-moon" aria-hidden="true">☾</span>
+    <span class="theme-toggle-label">Theme</span>
+  </button>
 </div>
 
 <!-- HERO -->
