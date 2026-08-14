@@ -48,19 +48,6 @@
   onScroll();
   backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
-  // Card mouse glow
-  function handleMouseMove(e, card) {
-    const rect = card.getBoundingClientRect();
-    const x = ((e.clientX - rect.left) / rect.width * 100).toFixed(1);
-    const y = ((e.clientY - rect.top) / rect.height * 100).toFixed(1);
-    card.style.setProperty('--mx', x + '%');
-    card.style.setProperty('--my', y + '%');
-  }
-  function handleMouseLeave(card) {
-    card.style.setProperty('--mx', '50%');
-    card.style.setProperty('--my', '50%');
-  }
-
   // Form submit
   async function handleFormSubmit(btn) {
   const wrapper = btn.closest('.contact-form-side');
@@ -84,10 +71,11 @@
     });
 
     if (res.ok) {
+      const originalHTML = btn.innerHTML;
       btn.textContent = 'Sent ✓';
       wrapper.querySelectorAll('input, textarea').forEach(el => el.value = '');
       setTimeout(() => {
-        btn.textContent = 'Send Message →';
+        btn.innerHTML = originalHTML;
         btn.disabled = false;
       }, 3000);
     } else {
@@ -117,3 +105,67 @@ themeToggles.forEach(btn => {
   });
 });
 applyTheme(document.documentElement.getAttribute('data-theme') || 'dark');
+
+// Starfield background
+function initStarfield() {
+  const canvas = document.getElementById('starfield');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let stars = [];
+  let width, height, dpr;
+
+  function styleColor(alpha) {
+    const raw = getComputedStyle(document.documentElement).getPropertyValue('--star-color').trim() || '255,255,255';
+    return `rgba(${raw},${alpha})`;
+  }
+
+  function resize() {
+    dpr = window.devicePixelRatio || 1;
+    width = window.innerWidth;
+    height = window.innerHeight;
+    canvas.width = width * dpr;
+    canvas.height = height * dpr;
+    canvas.style.width = width + 'px';
+    canvas.style.height = height + 'px';
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+    const count = Math.min(150, Math.floor((width * height) / 9000));
+    stars = Array.from({ length: count }, () => ({
+      x: Math.random() * width,
+      y: Math.random() * height,
+      r: Math.random() < 0.06 ? Math.random() * 1.5 + 1.5 : Math.random() * 1.1 + 0.4,
+      baseAlpha: Math.random() * 0.5 + 0.3,
+      phase: Math.random() * Math.PI * 2,
+      ring: Math.random() < 0.06
+    }));
+  }
+
+  function draw(t) {
+    const baseOpacity = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--star-opacity')) || 1;
+    ctx.clearRect(0, 0, width, height);
+    stars.forEach(s => {
+      const twinkle = reduceMotion ? 0 : Math.sin(t / 1400 + s.phase) * 0.3;
+      const alpha = Math.max(0.1, Math.min(1, s.baseAlpha + twinkle)) * baseOpacity;
+      ctx.beginPath();
+      ctx.fillStyle = styleColor(alpha);
+      ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+      ctx.fill();
+      if (s.ring) {
+        ctx.beginPath();
+        ctx.strokeStyle = styleColor(alpha * 0.5);
+        ctx.lineWidth = 1;
+        ctx.arc(s.x, s.y, s.r + 5, 0, Math.PI * 2);
+        ctx.stroke();
+      }
+    });
+    if (!reduceMotion) requestAnimationFrame(draw);
+  }
+
+  resize();
+  window.addEventListener('resize', resize, { passive: true });
+  requestAnimationFrame(draw);
+  if (reduceMotion) draw(0);
+}
+
+initStarfield();
