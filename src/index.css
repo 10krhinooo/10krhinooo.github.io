@@ -1,0 +1,254 @@
+@import 'tailwindcss';
+
+/*
+  Design system: neo-brutalist surfaces driven by a scroll narrative.
+
+  The palette is deliberately not the terminal green or the cream-and-serif look that backend
+  portfolios default to. It borrows from observability tooling instead: cobalt reads as a healthy
+  span, signal orange as the thing demanding attention. Both are used as flat fills, never as
+  gradients, because every surface here is a hard-edged block with a solid offset shadow.
+*/
+
+@theme {
+  --font-display: 'Archivo', system-ui, sans-serif;
+  --font-sans: 'Instrument Sans', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+
+  --color-ink: var(--c-ink);
+  --color-paper: var(--c-paper);
+  --color-surface: var(--c-surface);
+  --color-muted: var(--c-muted);
+  --color-line: var(--c-line);
+  --color-signal: var(--c-signal);
+  --color-alert: var(--c-alert);
+  --color-signal-soft: var(--c-signal-soft);
+
+  --radius-brut: 2px;
+}
+
+/* Light is the base definition. Every token is declared here so nothing depends on a media query. */
+:root {
+  --c-ink: #0b0d12;
+  --c-paper: #e4e6e1;
+  --c-surface: #fbfbf9;
+  --c-muted: #5f656e;
+  --c-line: #0b0d12;
+  --c-signal: #2b4bf2;
+  --c-signal-soft: #dfe4fd;
+  --c-alert: #ff5c1a;
+  --shadow-brut: 6px 6px 0 var(--c-line);
+  --shadow-brut-sm: 3px 3px 0 var(--c-line);
+  --shadow-brut-lg: 10px 10px 0 var(--c-line);
+  color-scheme: light;
+}
+
+/* System-dark, only when the visitor has not explicitly chosen light. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    --c-ink: #e8eaec;
+    --c-paper: #0b0d12;
+    --c-surface: #14171f;
+    --c-muted: #939aa5;
+    --c-line: #3a4150;
+    --c-signal: #5b78ff;
+    --c-signal-soft: #1b2340;
+    --c-alert: #ff7438;
+    --shadow-brut: 6px 6px 0 var(--c-line);
+    --shadow-brut-sm: 3px 3px 0 var(--c-line);
+    --shadow-brut-lg: 10px 10px 0 var(--c-line);
+    color-scheme: dark;
+  }
+}
+
+/* Explicit choice wins over the system in both directions. */
+:root[data-theme='dark'] {
+  --c-ink: #e8eaec;
+  --c-paper: #0b0d12;
+  --c-surface: #14171f;
+  --c-muted: #939aa5;
+  --c-line: #3a4150;
+  --c-signal: #5b78ff;
+  --c-signal-soft: #1b2340;
+  --c-alert: #ff7438;
+  --shadow-brut: 6px 6px 0 var(--c-line);
+  --shadow-brut-sm: 3px 3px 0 var(--c-line);
+  --shadow-brut-lg: 10px 10px 0 var(--c-line);
+  color-scheme: dark;
+}
+
+@layer base {
+  * {
+    border-color: var(--c-line);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--c-paper);
+    color: var(--c-ink);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  /* Display type is set tight and wide. The width axis is what gives it the industrial weight. */
+  /*
+    Archivo is a variable font with a width axis. Pushing it to the widest setting is what gives
+    the display type its industrial weight, and it is the reason this face was chosen over a
+    static heavy grotesque.
+  */
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    font-variation-settings: 'wdth' 125;
+    font-weight: 800;
+    line-height: 0.92;
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--c-signal);
+    outline-offset: 3px;
+  }
+
+  ::selection {
+    background: var(--c-signal);
+    color: #fff;
+  }
+}
+
+@layer components {
+  .brut {
+    border: 2px solid var(--c-line);
+    background: var(--c-surface);
+    box-shadow: var(--shadow-brut);
+  }
+
+  .brut-sm {
+    border: 2px solid var(--c-line);
+    background: var(--c-surface);
+    box-shadow: var(--shadow-brut-sm);
+  }
+
+  /* Cards lift toward the pointer instead of scaling, which keeps the hard edges crisp. */
+  .brut-press {
+    transition:
+      transform 160ms cubic-bezier(0.2, 0.8, 0.2, 1),
+      box-shadow 160ms cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+
+  .brut-press:hover {
+    transform: translate(-3px, -3px);
+    box-shadow: var(--shadow-brut-lg);
+  }
+
+  .label {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--c-muted);
+  }
+
+  .mono {
+    font-family: var(--font-mono);
+  }
+}
+
+@layer utilities {
+  .container-page {
+    width: 100%;
+    max-width: 84rem;
+    margin-inline: auto;
+    padding-inline: 1.25rem;
+  }
+
+  @media (min-width: 768px) {
+    .container-page {
+      padding-inline: 2.5rem;
+    }
+  }
+
+  /* Wide content scrolls inside itself so the page body never scrolls sideways. */
+  .scroll-x {
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+  }
+}
+
+/*
+  The hero name rises into place behind a clipping mask. This is CSS rather than a JS animation
+  because React's StrictMode double-mount cancels a mount-triggered JS tween and leaves the text
+  stranded at its start offset. A keyframe cannot get stuck that way.
+*/
+@keyframes rise-in {
+  from {
+    transform: translateY(110%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+.hero-line {
+  display: block;
+  animation: rise-in 0.85s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/*
+  Scoped to `html.js`, which the app sets on mount. Content must never start invisible on the
+  strength of CSS alone: if the bundle fails to load or is blocked, the page still has to read.
+  The hidden start state only exists once JavaScript is proven able to remove it.
+*/
+.js .reveal {
+  opacity: 0;
+  transform: translateY(26px);
+  transition:
+    opacity 0.55s cubic-bezier(0.2, 0.8, 0.2, 1),
+    transform 0.55s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.js .reveal-in {
+  opacity: 1;
+  transform: none;
+}
+
+/*
+  With motion suppressed the transition is neutralised globally, so the start state would strand
+  content at opacity 0. Everything must simply be visible from the outset instead.
+*/
+@media (prefers-reduced-motion: reduce) {
+  .js .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    /* The track is the item list twice over, so half a turn is one seamless loop. */
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
