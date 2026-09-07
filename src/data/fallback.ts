@@ -182,23 +182,23 @@ export const fallbackContent: Content = {
       "thumbnailUrl": null,
       "featured": true
     },
-    {
-      "slug": "apeiro-digital-website",
-      "title": "Apeiro Digital Website",
-      "number": "09",
-      "category": "Company Projects",
-      "description": "A Quarkus-based backend platform for the company website, handling image and article storage. Authentication via Keycloak integrated with Microsoft Entra ID restricts access to company-domain accounts, and the system is designed for reuse across the company's subsidiaries.",
-      "period": "2026 - Present",
-      "tags": [
-        "Quarkus",
-        "Keycloak",
-        "Microsoft Entra ID"
-      ],
-      "repoUrl": null,
-      "liveUrl": null,
-      "thumbnailUrl": null,
-      "featured": false
-    },
+    // {
+    //   "slug": "apeiro-digital-website",
+    //   "title": "Apeiro Digital Website",
+    //   "number": "09",
+    //   "category": "Company Projects",
+    //   "description": "A Quarkus-based backend platform for the company website, handling image and article storage. Authentication via Keycloak integrated with Microsoft Entra ID restricts access to company-domain accounts, and the system is designed for reuse across the company's subsidiaries.",
+    //   "period": "2026 - Present",
+    //   "tags": [
+    //     "Quarkus",
+    //     "Keycloak",
+    //     "Microsoft Entra ID"
+    //   ],
+    //   "repoUrl": null,
+    //   "liveUrl": null,
+    //   "thumbnailUrl": null,
+    //   "featured": false
+    // },
     {
       "slug": "webchama",
       "title": "Webchama 2.0",
